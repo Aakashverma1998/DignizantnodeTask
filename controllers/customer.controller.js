@@ -14,7 +14,7 @@ const register = async (req, res) => {
         });
         if (emailMatch) {
             return res.status(400).json({
-                message: "EMPLOYEE EXIST"
+                message: "CUSTOMER EXIST"
             });
         }
         let addCustomer = Customer({

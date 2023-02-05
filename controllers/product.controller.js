@@ -70,7 +70,7 @@ const getImage = async (req, res) => {
         if (!product) {
             throw new Error()
         }
-        res.set('Content-Type', 'image/jpg')
+        res.set('Content-Type', 'image/jpg/pdf/png')
         res.send(product.images)
     } catch (err) {
         return res.json(helper.showInternalServerErrorResponse("Internal server error"));
