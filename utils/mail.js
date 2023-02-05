@@ -22,7 +22,7 @@ const sendCustomerForgetpasswordMail = async (cust) => {
     }
     try{
         const result = await sgMail.send(msg)
-        console.log("message sent successfully......")
+        console.log("mail sent successfully......")
     }catch(err){
         console.log(err)
 
