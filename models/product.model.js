@@ -12,4 +12,12 @@ const productSchema = new mongoose.Schema({
     timestamps: true
 })
 
+//This function  is  use for hind binary image during sending response to client.
+productSchema.methods.toJSON = function(){
+    let product = this
+    const productObject = product.toObject()
+    delete productObject.images
+    return productObject
+}
+
 module.exports = mongoose.model("Product", productSchema)

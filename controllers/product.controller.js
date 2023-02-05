@@ -20,7 +20,7 @@ const addProduct = async (req, res) => {
 
 const getProduct = async (req, res) => {
     try {
-        const product = await Product.find().limit(parseInt(req.query.limit))
+        const product = await Product.find({isDeleted:false}).limit(parseInt(req.query.limit))
             .skip(parseInt(req.query.skip))
         res.status(200).json({
             message: "Product Featch Successfully.",
@@ -43,7 +43,7 @@ const updateProduct = async(req,res)=>{
 
 const deleteProduct = async(req,res)=>{
     try{
-        const product = await Product.findByIdAndDelete(req.body.productId,{isDeleted:true},{new:true})
+        const product = await Product.findByIdAndUpdate(req.body.productId,{isDeleted:true},{new:true})
         res.send(product)
     }catch(err){
         console.log(err)
